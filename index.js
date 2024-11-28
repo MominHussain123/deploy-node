@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 const PORT = 4000;
+const path = require("path");
+app.use(express.static(path.resolve(path.join(__dirname,"public"))));
+app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.status(200).json('Welcome, your app is working well');
-});
+app.get('/');
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
